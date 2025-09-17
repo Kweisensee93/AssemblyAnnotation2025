@@ -1,2 +1,6 @@
-#Ignore references
+#Ignore unneeded folders
 references/
+logfiles/
+output/
+rawdata/
+scripts/old
