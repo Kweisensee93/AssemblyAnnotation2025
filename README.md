@@ -1,1 +1,1 @@
-This is the course GEnome Assembly and Annotation
+This is the course Genome Assembly and Annotation
