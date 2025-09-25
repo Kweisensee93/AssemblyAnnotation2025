@@ -8,7 +8,7 @@
 #SBATCH --error=../logfiles/hifiasm_%J.err       # Standard error
 #SBATCH --partition=pibu_el8                # Partition for the course
 
-HIFIASM_IMAGE=/containers/apptainer/hifiasm_0.19.8.sif  #Image for Flye
+HIFIASM_IMAGE=/containers/apptainer/hifiasm_0.25.0.sif  #Image for Flye
 
 # Define variables
 WORKDIR="/data/users/kweisensee/assembly"               # Project main folder
