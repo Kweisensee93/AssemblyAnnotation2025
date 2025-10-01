@@ -15,9 +15,9 @@ OUTDIR="${WORKDIR}/output/quast"
 mkdir -p $OUTDIR
 
 #Input assemblies
-FLYE="$WORKDIR/output/flye/assembly.fasta"
-HIFIASM="$WORKDIR/output/hifiasm/No-0.fa"
-LJA="$WORKDIR/output/LJA/No-0/assembly.fasta"
+FLYE="${WORKDIR}/output/flye/assembly.fasta"
+HIFIASM="${WORKDIR}/output/hifiasm/No-0.fa"
+LJA="${WORKDIR}/output/LJA/No-0/assembly.fasta"
 
 # Reference files
 REF="${WORKDIR}/rawdata/references/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa"
