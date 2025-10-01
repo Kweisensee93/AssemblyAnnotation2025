@@ -4,3 +4,5 @@ logfiles/
 output/
 rawdata/
 scripts/old
+scripts/busco_downloads
+scripts/busco*
