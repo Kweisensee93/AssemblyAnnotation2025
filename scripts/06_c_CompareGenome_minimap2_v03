@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+#SBATCH --cpus-per-task=16
+#SBATCH --mem=64G
+#SBATCH --time=12:00:00
+#SBATCH --job-name=minimap2
+#SBATCH --output=../logfiles/minimap_%j.out
+#SBATCH --error=../logfiles/minimap_%j.err
+#SBATCH --partition=pibu_el8
+#SBATCH --array=0-2
+
+module load SAMtools/1.13-GCC-10.3.0
+
+MINIMAP_IMAGE=/containers/apptainer/minimap2-2.26.sif # Image for minimap2
+
+WORKDIR="/data/users/kweisensee/assembly"
+REF=${WORKDIR}/rawdata/references/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa
+FLYE="${WORKDIR}/output/flye/assembly.fasta"
+HIFIASM="$WORKDIR/output/hifiasm/No-0.fa"
+LJA="$WORKDIR/output/LJA/No-0/assembly.fasta"
+RESULTDIR="${WORKDIR}/output/genomes_comparison_minimap2"
+mkdir -p $RESULTDIR
+
+ASSEMBLY_NAMES=(flye hifiasm lja)
+ASSEMBLY_FILES=("$FLYE" "$HIFIASM" "$LJA")
+
+NAME=${ASSEMBLY_NAMES[$SLURM_ARRAY_TASK_ID]}
+FILE=${ASSEMBLY_FILES[$SLURM_ARRAY_TASK_ID]}
+
+# --- Step 1: produce BAM (alignments for IGV/stats)
+apptainer exec --bind /data ${MINIMAP_IMAGE} minimap2 \
+    -ax asm5 \
+    -t ${SLURM_CPUS_PER_TASK} $REF $FILE | \
+    samtools sort -o $RESULTDIR/${NAME}.bam
+
+samtools index $RESULTDIR/${NAME}.bam
+
+# --- Step 2: produce PAF (for dotplot)
+apptainer exec --bind /data ${MINIMAP_IMAGE} minimap2 \
+    -x asm5 \
+    -t ${SLURM_CPUS_PER_TASK} $REF $FILE > $RESULTDIR/${NAME}.paf
+
+# --- Step 3: run minidot on PAF -> SVG plot
+apptainer exec --bind /data ${MINIMAP_IMAGE} minidot \
+    -i $RESULTDIR/${NAME}.paf \
+    -o $RESULTDIR/${NAME}.svg
