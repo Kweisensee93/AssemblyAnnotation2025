@@ -9,5 +9,5 @@
 
 
 # Build the miniasm container
-apptainer build miniasm.sif docker://biocontainers/miniasm:v0.3-r179--h7132678_1
+apptainer pull miniasm.sif docker://cimendes/miniasm:03_r179
 

@@ -14,7 +14,7 @@ mkdir -p $OUTDIR
 
 FLYE="$WORKDIR/output/flye/assembly.fasta"
 HIFIASM="$WORKDIR/output/hifiasm/No-0.fa"
-LJA="$WORKDIR/output/LJA/assembly.fasta"
+LJA="$WORKDIR/output/LJA/No-0/assembly.fasta"
 TRINITY="$WORKDIR/output/trinity.Trinity.fasta" # Trinity puts it one above
 
 # issues with the busco .sif ; hence we use module

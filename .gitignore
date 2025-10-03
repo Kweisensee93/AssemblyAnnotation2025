@@ -7,3 +7,4 @@ scripts/old
 scripts/busco_downloads
 scripts/busco*
 scripts/*.delta
+scripts/*.sif
