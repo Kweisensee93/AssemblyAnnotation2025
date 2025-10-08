@@ -14,19 +14,19 @@ The data is processed as follows:
   03_kmer_v01.sh    using jellyfish version 2.2.6
 
 ### 4) genome assembly
-  04_a_assembly_flye_v01.sh  using fly version 2.9.5
-  04_b1_assembly_hifiasm_v01.sh  using hifiasm version 0.25.0
-  04_b2_rename_hifiasm_v01.sh  renaming of the hifiasm files for later processing
-  04_c_assembly_LJA_v01.sh    using LJA version 0.2
-  04_d_assembly_trinity_c01.sh  using trinity version 2.15.1
+  04_a_assembly_flye_v01.sh  using fly version 2.9.5  
+  04_b1_assembly_hifiasm_v01.sh  using hifiasm version 0.25.0  
+  04_b2_rename_hifiasm_v01.sh  renaming of the hifiasm files for later processing  
+  04_c_assembly_LJA_v01.sh    using LJA version 0.2  
+  04_d_assembly_trinity_c01.sh  using trinity version 2.15.1  
 
 ### 5) Quality control of the assembly
-  05_a_QCassembly_BUSCO_v01.sh  using BUSCO version 5.4.2
-  05_b_QCassembly_QUAST_v01.sh  using QUAST version 5.2.0
-  05_c1_QCassembly_meryl.sh  using merqury version 1.3
-  05_c2_QCassembly_merqury.sh  using merqury version 1.3
+  05_a_QCassembly_BUSCO_v01.sh  using BUSCO version 5.4.2  
+  05_b_QCassembly_QUAST_v01.sh  using QUAST version 5.2.0  
+  05_c1_QCassembly_meryl.sh  using merqury version 1.3  
+  05_c2_QCassembly_merqury.sh  using merqury version 1.3  
 
 ### 6) Comparison of the genomes
-  06_a_CompareGenomenucmer_v01.sh  using mummer4
-  06_b_CompareGenomemummer_v01.sh  using mummer4
-  06_c_CompareBetween_mummer_v01.sh  using mummer4  #This script compares assemblies to reference as well as between each other.
+  06_a_CompareGenomenucmer_v01.sh  using mummer4  
+  06_b_CompareGenomemummer_v01.sh  using mummer4  
+  06_c_CompareBetween_mummer_v01.sh  using mummer4  #This script compares assemblies to reference as well as between each other.  
