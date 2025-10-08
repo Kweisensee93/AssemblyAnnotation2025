@@ -4,7 +4,7 @@ The aim of this course is to make a denovo assembly of a whole genome sequence w
 Data is available at https://www.nature.com/articles/s41588-024-01715-9 and https://www.nature.com/articles/s41467-020-14779-y.
 
 The data is processed as follows:
-## 1) Quality control of the reads:
+### 1) Quality control of the reads:
   01_FastQC_v01.sh    using FastQC version 0.12.1
 
 ##2) Trimming of the reads:
