@@ -5,10 +5,10 @@ Data is available at https://www.nature.com/articles/s41588-024-01715-9 and http
 
 The data is processed as follows:
 ### 1) Quality control of the reads:
-  01_FastQC_v01.sh > using FastQC version 0.12.1
+  01_FastQC_v01.sh &nbsp;&nbsp;&nbsp;&nbsp; using FastQC version 0.12.1
 
 ### 2) Trimming of the reads:
-  02_fastp_v01.sh    using fastp  version 0.23.2
+  02_fastp_v01.sh &nbsp;&nbsp;&nbsp;&nbsp; using fastp  version 0.23.2
 
 ### 3) kmer counting
   03_kmer_v01.sh    using jellyfish version 2.2.6
