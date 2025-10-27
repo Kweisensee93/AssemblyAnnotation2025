@@ -1,24 +1,27 @@
 #!/usr/bin/env bash
-#SBATCH --time=24:00:00
-#SBATCH --mem=64G
+#SBATCH --time=12:00:00
+#SBATCH --mem=32G
 #SBATCH --cpus-per-task=8
-#SBATCH --job-name=mummer_cross
+#SBATCH --job-name=mummer
+#SBATCH --output=../logfiles/mummer_%j.out
+#SBATCH --error=../logfiles/mummer_%j.err
 #SBATCH --partition=pibu_el8
-#SBATCH --output=mummer_cross_%j.out
 
-## Script run by lland (kept here for completness)
 
 # -----------------------
 # Paths
 # -----------------------
-WORKDIR=/data/users/lland/assembly_annotation_course
-OUTDIR=$WORKDIR/mummer_between_accessions
+WORKDIR="/data/users/kweisensee/assembly"
+OUTDIR=$WORKDIR/output/mummer
 mkdir -p $OUTDIR
 
-# Preferred assemblies per accession (adjust these!)
-ACC1=/data/users/lland/assembly_annotation_course/assembly/hifiasm/istisu1.bp.p_ctg.fa # Accession A
-ACC2=/data/users/aballah/assembly_annotation_course/outputs/hifiasm/assembly.fasta   # Accession B
-ACC3=/data/users/kweisensee/assembly/output/hifiasm/No-0.fa      # Accession C
+# Assemblies
+FLYE=$WORKDIR/output/flye/assembly.fasta
+HIFIASM=$WORKDIR/output/hifiasm/No-0.fa
+LJA=$WORKDIR/output/LJA/No-0/assembly.fasta
+
+# Reference
+REF=/data/courses/assembly-annotation-course/references/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa
 
 # Container
 CONTAINER=/containers/apptainer/mummer4_gnuplot.sif
@@ -46,8 +49,15 @@ run_mummer () {
 }
 
 # -----------------------
-# Pairwise cross-accession comparisons
+# 1. Assemblies vs reference
 # -----------------------
-run_mummer $OUTDIR/Isitsu-1_vs_Sf-2 $ACC1 $ACC2
-run_mummer $OUTDIR/Isitsu-1_vs_No-0 $ACC1 $ACC3
-run_mummer $OUTDIR/Sf-2_vs_No-0 $ACC2 $ACC3
+run_mummer $OUTDIR/flye_vs_ref $REF $FLYE
+run_mummer $OUTDIR/hifiasm_vs_ref $REF $HIFIASM
+run_mummer $OUTDIR/lja_vs_ref $REF $LJA
+
+# -----------------------
+# 2. Pairwise assembly comparisons
+# -----------------------
+run_mummer $OUTDIR/flye_vs_hifiasm $FLYE $HIFIASM
+run_mummer $OUTDIR/flye_vs_lja $FLYE $LJA
+run_mummer $OUTDIR/hifiasm_vs_lja $HIFIASM $LJA
