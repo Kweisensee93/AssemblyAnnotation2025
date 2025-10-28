@@ -8,4 +8,5 @@ scripts/busco_downloads
 scripts/busco*
 scripts/*.delta
 scripts/*.sif
+scripts/*.out
 README.md
