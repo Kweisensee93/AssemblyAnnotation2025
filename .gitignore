@@ -1,8 +1,8 @@
 #Ignore unneeded folders
-references/
-logfiles/
-output/
-rawdata/
+# Ignore everything
+*
+# Include scripts
+!scripts/
 scripts/old
 scripts/busco_downloads
 scripts/busco*
