@@ -1,5 +1,32 @@
-library(tidyverse)
-library(readr)
+# Personal library
+my_lib <- "/data/users/kweisensee/assembly/R_Packages"
+if (!dir.exists(my_lib)) dir.create(my_lib, recursive = TRUE)
+# make sure R uses personal library first, THEN default libraries, otherwise we get headaches
+.libPaths(c(my_lib, .libPaths()))
+
+# Install dependencies that empirically caused errors - if missing
+required_pkgs <- c("ggplot2","dplyr","stringr","forcats","tibble")
+for (pkg in required_pkgs) {
+  if (!requireNamespace(pkg, lib.loc=my_lib, quietly=TRUE)) {
+    install.packages(pkg, lib=my_lib, repos="https://cloud.r-project.org/")
+  }
+}
+
+# Install readr if missing
+if (!requireNamespace("readr", lib.loc=my_lib, quietly=TRUE)) {
+  install.packages("readr", lib=my_lib, repos="https://cloud.r-project.org/")
+}
+
+# Install tidyverse if missing
+if (!requireNamespace("tidyverse", lib.loc=my_lib, quietly=TRUE)) {
+  install.packages("tidyverse", lib=my_lib, repos="https://cloud.r-project.org/")
+}
+
+# Load tidyverse
+library(tidyverse, lib.loc=my_lib)
+library(readr, lib.loc=my_lib)
+
+
 
 # -----------------
 # 0) Inputs
