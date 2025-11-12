@@ -1,13 +1,20 @@
-#Ignore unneeded folders
-# Ignore everything
+# Ignore everything by default
 *
-# Include scripts
+
+# Allow the .gitignore file itself
+!.gitignore
+
+# Allow the README
+!README.md
+
+# Allow the scripts folder and its contents
 !scripts/
-# But ignore specific files and folders in scripts
-scripts/old
-scripts/busco_downloads
+!scripts/**
+
+# Ignore specific unwanted things inside scripts
+scripts/old/
+scripts/busco_downloads/
 scripts/busco*
 scripts/*.delta
 scripts/*.sif
 scripts/*.out
-README.md
