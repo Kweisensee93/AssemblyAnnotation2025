@@ -3,6 +3,7 @@
 *
 # Include scripts
 !scripts/
+# But ignore specific files and folders in scripts
 scripts/old
 scripts/busco_downloads
 scripts/busco*
