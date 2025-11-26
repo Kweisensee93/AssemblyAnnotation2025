@@ -51,9 +51,12 @@ The pipeline consists of the following main stages:
   05_c2_QCassembly_merqury.sh &nbsp;&nbsp;&nbsp;&nbsp; Assembly quality estimation using **merqury** version 1.3  
 
 ### 6) Comparison of the genomes
-  06_a_CompareGenomenucmer_v01.sh &nbsp;&nbsp;&nbsp;&nbsp; Whole-genome alignment using **mummer4** (nucmer)  
+  06_a_CompareGenomenucmer_v01.sh &nbsp;&nbsp;&nbsp;&nbsp; Whole-genome alignment using **mummer4** (nucmer)
+  
   06_b_CompareGenomemummer_v01.sh &nbsp;&nbsp;&nbsp;&nbsp; **MUMmer4** downstream comparison
+  
   06_c_CompareBetween_mummer_v01.sh &nbsp;&nbsp;&nbsp;&nbsp; Assembly-to-reference and assembly-to-assembly comparison
+  
   06_c_CompareGenome_minimap2_v03	&nbsp;&nbsp;&nbsp;&nbsp; Comparative mapping using **minimap2**
 
 ### 7) Transposable Element Annotation
