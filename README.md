@@ -1,6 +1,6 @@
 # Genome Assembly and Annotation — Course Repository
 
-This repository contains all scripts and resources used in the course Genome Assembly and Annotation.
+This repository contains all scripts and resources used in the courses for Genome Assembly and Annotation.
 The aim of the course is to perform de novo assembly of a whole genome using PacBio HiFi reads and Illumina RNA-seq reads, followed by transcriptome assembly, annotation, transposable element (TE) annotation, and comparative genomics.
 
 # Data Sources
@@ -17,7 +17,9 @@ https://www.nature.com/articles/s41588-024-01715-9
 
 https://www.nature.com/articles/s41467-020-14779-y
 
+Within this repository the arapidopsis thaliana accession No-0 was used and worked upon.
 
+S
 # Workflow Overview
 
 The pipeline consists of the following main stages:
