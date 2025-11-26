@@ -12,7 +12,9 @@ PacBio HiFi data: Nature Genetics article
 RNA-seq data: Nature Communications article
 
 See original publications:
+
 https://www.nature.com/articles/s41588-024-01715-9
+
 https://www.nature.com/articles/s41467-020-14779-y
 
 
