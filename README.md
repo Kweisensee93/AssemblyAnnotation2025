@@ -19,7 +19,6 @@ https://www.nature.com/articles/s41467-020-14779-y
 
 Within this repository the arapidopsis thaliana accession No-0 was used and worked upon.
 
-S
 # Workflow Overview
 
 The pipeline consists of the following main stages:
